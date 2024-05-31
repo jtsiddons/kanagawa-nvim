@@ -4,8 +4,8 @@ local M = {}
 ---@param colors KanagawaColors
 ---@param config? KanagawaConfig
 function M.setup(colors, config)
-    local theme = colors.theme
-    config = config or require("kanagawa").config
+	local theme = colors.theme
+	config = config or require("kanagawa").config
 
     return {
         -- ColorColumn	Used for the columns set with 'colorcolumn'.
@@ -145,58 +145,74 @@ function M.setup(colors, config)
         -- WinBarNC	Window bar of not-current windows.
         WinBarNC = { fg = theme.ui.fg_dim, bg = config.dimInactive and theme.ui.bg_dim or "NONE" },
 
-        -- SignColumnSB = { link = "SignColumn" },
-        -- NormalSB = { link = "Normal" },
+		-- SignColumnSB = { link = "SignColumn" },
+		-- NormalSB = { link = "Normal" },
 
-        debugPC = { bg = theme.diff.delete },
-        debugBreakpoint = { fg = theme.syn.special1, bg = theme.ui.bg_gutter },
+		debugPC = { bg = theme.diff.delete },
+		debugBreakpoint = { fg = theme.syn.special1, bg = theme.ui.bg_gutter },
 
-        LspReferenceText = { bg = theme.diff.text },
-        LspReferenceRead = { link = "LspReferenceText" },
-        LspReferenceWrite = { bg = theme.diff.text, underline = true },
-        -- LspInlayHint = { link = "NonText"},
+		LspReferenceText = { bg = theme.diff.text },
+		LspReferenceRead = { link = "LspReferenceText" },
+		LspReferenceWrite = { bg = theme.diff.text, underline = true },
+		-- LspInlayHint = { link = "NonText"},
 
-        DiagnosticError = { fg = theme.diag.error },
-        DiagnosticWarn = { fg = theme.diag.warning },
-        DiagnosticInfo = { fg = theme.diag.info },
-        DiagnosticHint = { fg = theme.diag.hint },
-        DiagnosticOk = { fg = theme.diag.ok },
+		DiagnosticError = { fg = theme.diag.error },
+		DiagnosticWarn = { fg = theme.diag.warning },
+		DiagnosticInfo = { fg = theme.diag.info },
+		DiagnosticHint = { fg = theme.diag.hint },
+		DiagnosticOk = { fg = theme.diag.ok },
 
-        DiagnosticFloatingError = { fg = theme.diag.error },
-        DiagnosticFloatingWarn = { fg = theme.diag.warning },
-        DiagnosticFloatingInfo = { fg = theme.diag.info },
-        DiagnosticFloatingHint = { fg = theme.diag.hint },
-        DiagnosticFloatingOk = { fg = theme.diag.ok },
+		DiagnosticFloatingError = { fg = theme.diag.error },
+		DiagnosticFloatingWarn = { fg = theme.diag.warning },
+		DiagnosticFloatingInfo = { fg = theme.diag.info },
+		DiagnosticFloatingHint = { fg = theme.diag.hint },
+		DiagnosticFloatingOk = { fg = theme.diag.ok },
 
-        DiagnosticSignError = { fg = theme.diag.error, bg = theme.ui.bg_gutter },
-        DiagnosticSignWarn = { fg = theme.diag.warning, bg = theme.ui.bg_gutter },
-        DiagnosticSignInfo = { fg = theme.diag.info, bg = theme.ui.bg_gutter },
-        DiagnosticSignHint = { fg = theme.diag.hint, bg = theme.ui.bg_gutter },
+		DiagnosticSignError = { fg = theme.diag.error, bg = theme.ui.bg_gutter },
+		DiagnosticSignWarn = { fg = theme.diag.warning, bg = theme.ui.bg_gutter },
+		DiagnosticSignInfo = { fg = theme.diag.info, bg = theme.ui.bg_gutter },
+		DiagnosticSignHint = { fg = theme.diag.hint, bg = theme.ui.bg_gutter },
 
-        DiagnosticVirtualTextError = { link = "DiagnosticError" },
-        DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
-        DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
-        DiagnosticVirtualTextHint = { link = "DiagnosticHint" },
+		DiagnosticVirtualTextError = { link = "DiagnosticError" },
+		DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
+		DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
+		DiagnosticVirtualTextHint = { link = "DiagnosticHint" },
 
-        DiagnosticUnderlineError = { undercurl = config.undercurl, underline = not config.undercurl, sp = theme.diag.error },
-        DiagnosticUnderlineWarn = { undercurl = config.undercurl, underline = not config.undercurl, sp = theme.diag.warning },
-        DiagnosticUnderlineInfo = { undercurl = config.undercurl, underline = not config.undercurl, sp = theme.diag.info },
-        DiagnosticUnderlineHint = { undercurl = config.undercurl, underline = not config.undercurl, sp = theme.diag.hint },
+		DiagnosticUnderlineError = {
+			undercurl = config.undercurl,
+			underline = not config.undercurl,
+			sp = theme.diag.error,
+		},
+		DiagnosticUnderlineWarn = {
+			undercurl = config.undercurl,
+			underline = not config.undercurl,
+			sp = theme.diag.warning,
+		},
+		DiagnosticUnderlineInfo = {
+			undercurl = config.undercurl,
+			underline = not config.undercurl,
+			sp = theme.diag.info,
+		},
+		DiagnosticUnderlineHint = {
+			undercurl = config.undercurl,
+			underline = not config.undercurl,
+			sp = theme.diag.hint,
+		},
 
-        LspSignatureActiveParameter = { fg = theme.diag.warning },
-        LspCodeLens = { fg = theme.syn.comment },
+		LspSignatureActiveParameter = { fg = theme.diag.warning },
+		LspCodeLens = { fg = theme.syn.comment },
 
-        -- vcs
-        diffAdded = { fg = theme.vcs.added },
-        diffRemoved = { fg = theme.vcs.removed },
-        diffDeleted = { fg = theme.vcs.removed },
-        diffChanged = { fg = theme.vcs.changed },
-        diffOldFile = { fg = theme.vcs.removed },
-        diffNewFile = { fg = theme.vcs.added },
-        -- diffFile = { fg = c.steelGray },
-        -- diffLine = { fg = c.steelGray },
-        -- diffIndexLine = { link = 'Identifier' },
-    }
+		-- vcs
+		diffAdded = { fg = theme.vcs.added },
+		diffRemoved = { fg = theme.vcs.removed },
+		diffDeleted = { fg = theme.vcs.removed },
+		diffChanged = { fg = theme.vcs.changed },
+		diffOldFile = { fg = theme.vcs.removed },
+		diffNewFile = { fg = theme.vcs.added },
+		-- diffFile = { fg = c.steelGray },
+		-- diffLine = { fg = c.steelGray },
+		-- diffIndexLine = { link = 'Identifier' },
+	}
 end
 
 return M
